@@ -25,6 +25,9 @@ public class CollectionService {
     }
 
     public Integer sum(List<Integer> list) {
-        return list.stream().reduce(Integer::sum).get();
+        if(list.stream().reduce(Integer::sum).isPresent()){
+            return list.stream().reduce(Integer::sum).get();
+        }
+        return null;
     }
 }
